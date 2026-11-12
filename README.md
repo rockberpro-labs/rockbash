@@ -16,7 +16,7 @@ Prompt and terminal settings for bash.
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rockberpro-dev/bash-prompt/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/bash-prompt/main/install.sh | bash
 ```
 
 Or use `wget -qO-` instead of `curl -fsSL`, or clone the repo and run `bash install.sh`. Then open a new terminal.
@@ -26,7 +26,7 @@ Or use `wget -qO-` instead of `curl -fsSL`, or clone the repo and run `bash inst
 Colored block prompt with icons, via [Starship](https://starship.rs):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rockberpro-dev/bash-prompt/main/install.sh | bash -s -- --starship
+curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/bash-prompt/main/install.sh | bash -s -- --starship
 ```
 
 | Flag               | Effect                                                    |
