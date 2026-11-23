@@ -7,7 +7,7 @@
   [ -f ~/.bashrc.d/terminal.sh ] && . ~/.bashrc.d/terminal.sh
   ```
 - Can be run again to update; the line is not duplicated.
-- Files come from the local clone when present, otherwise from `BASH_PROMPT_URL` (default: this repo's `main` on GitHub).
+- Files come from the local clone when present, otherwise from `ROCKBASH_URL` (default: this repo's `main` on GitHub).
 
 ## Starship
 

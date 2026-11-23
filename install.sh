@@ -29,7 +29,7 @@ for arg in "$@"; do
 done
 
 # Onde os arquivos estão publicados (usado quando não há cópia local)
-BASE_URL=${BASH_PROMPT_URL:-https://raw.githubusercontent.com/rockberpro-labs/bash-prompt/main}
+BASE_URL=${ROCKBASH_URL:-${BASH_PROMPT_URL:-https://raw.githubusercontent.com/rockberpro-labs/rockbash/main}}
 
 fetch() { if command -v curl >/dev/null; then curl -fsSL "$1"; else wget -qO- "$1"; fi; }
 
