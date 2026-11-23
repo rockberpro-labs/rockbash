@@ -23,7 +23,7 @@ Or use `wget -qO-` instead of `curl -fsSL`, or clone the repo and run `bash inst
 
 ## Starship (optional)
 
-Colored block prompt with icons, via [Starship](https://starship.rs):
+Colored block prompt with icons, via [Starship](https://starship.rs). In narrow panes (< 100 columns, e.g. tmux) the `monokai` theme switches to a compact prompt automatically:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/bash-prompt/main/install.sh | bash -s -- --starship

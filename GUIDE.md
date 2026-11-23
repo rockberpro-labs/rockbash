@@ -19,6 +19,8 @@ Run the installer with `--starship` (or any of `--local`, `--system`, `--theme=`
 
 **Existing config.** If `~/.config/starship.toml` doesn't exist, it is created with the chosen theme. If it exists, it is kept, unless you picked a theme (menu or `--theme`): then it is saved as `~/.config/starship.toml.bak` and replaced. Without a terminal to ask, defaults are used.
 
+**Narrow panes.** With `monokai`, `~/.config/starship-compact.toml` (directory, project, git only) is used whenever the terminal is narrower than 100 columns; set `STARSHIP_COMPACT_COLS` (before `terminal.sh` is loaded) to change the threshold. Other presets don't get a compact version.
+
 **Changing theme later**
 
 ```bash
@@ -77,7 +79,7 @@ These only apply to the plain prompt; with Starship active, the prompt comes fro
 ```bash
 rm ~/.bashrc.d/terminal.sh
 sed -i '\|\. ~/.bashrc.d/terminal.sh$|d' ~/.bashrc
-rm -f ~/.local/bin/starship ~/.config/starship.toml   # if you installed Starship
+rm -f ~/.local/bin/starship ~/.config/starship.toml ~/.config/starship-compact.toml   # if you installed Starship
 ```
 
 Use `sudo rm /usr/local/bin/starship` if it was installed system-wide; remove the font as shown above.

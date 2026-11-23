@@ -38,6 +38,19 @@ command -v fdfind >/dev/null && ! command -v fd  >/dev/null && alias fd=fdfind
 # Se o starship estiver instalado, ele cuida do prompt e o resto do arquivo é ignorado.
 if command -v starship >/dev/null; then
   eval "$(starship init bash)"
+  # Em painéis estreitos (ex.: tmux) usa o prompt compacto, se instalado.
+  __starship_full=${STARSHIP_CONFIG:-$HOME/.config/starship.toml}
+  __starship_compact=$HOME/.config/starship-compact.toml
+  if [[ -f $__starship_compact ]]; then
+    __starship_width() {
+      if (( COLUMNS < ${STARSHIP_COMPACT_COLS:-100} )); then
+        export STARSHIP_CONFIG=$__starship_compact
+      else
+        export STARSHIP_CONFIG=$__starship_full
+      fi
+    }
+    starship_precmd_user_func=__starship_width
+  fi
   return
 fi
 
