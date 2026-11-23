@@ -114,8 +114,10 @@ if (( starship )); then
   fi
   if [[ $theme == monokai ]]; then
     install_file starship.toml ~/.config/starship.toml
+    install_file starship-compact.toml ~/.config/starship-compact.toml
   elif [[ -n $theme ]]; then
     "$starship_bin" preset "$theme" -o ~/.config/starship.toml
+    rm -f ~/.config/starship-compact.toml   # o compacto é só do monokai
   fi
   [[ $bin_dir != "$HOME/.local/bin" || :$PATH: == *:$HOME/.local/bin:* ]] || echo "Atenção: adicione ~/.local/bin ao PATH antes do terminal.sh no ~/.bashrc"
 
