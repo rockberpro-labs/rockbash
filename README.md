@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="resources/img/bash.png" alt="Bash" width="128">
+  <img src="resources/img/bash.png" alt="RockBash" width="128">
 </p>
 
-# Bash Prompt
+# RockBash
 
 Prompt and terminal settings for bash.
 
@@ -16,7 +16,7 @@ Prompt and terminal settings for bash.
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/bash-prompt/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/rockbash/main/install.sh | bash
 ```
 
 Or use `wget -qO-` instead of `curl -fsSL`, or clone the repo and run `bash install.sh`. Then open a new terminal.
@@ -26,7 +26,7 @@ Or use `wget -qO-` instead of `curl -fsSL`, or clone the repo and run `bash inst
 Colored block prompt with icons, via [Starship](https://starship.rs). In narrow panes (< 100 columns, e.g. tmux) the `monokai` theme switches to a compact prompt automatically:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/bash-prompt/main/install.sh | bash -s -- --starship
+curl -fsSL https://raw.githubusercontent.com/rockberpro-labs/rockbash/main/install.sh | bash -s -- --starship
 ```
 
 | Flag               | Effect                                                    |
