@@ -19,8 +19,6 @@ Run the installer with `--starship` (or any of `--local`, `--system`, `--theme=`
 
 **Existing config.** If `~/.config/starship.toml` doesn't exist, it is created with the chosen theme. If it exists, it is kept, unless you picked a theme (menu or `--theme`): then it is saved as `~/.config/starship.toml.bak` and replaced. Without a terminal to ask, defaults are used.
 
-**Narrow panes.** With `monokai`, `~/.config/starship-compact.toml` (directory and git only, branch truncated) is used whenever the terminal is narrower than 100 columns; set `STARSHIP_COMPACT_COLS` (before `terminal.sh` is loaded) to change the threshold. Other presets don't get a compact version.
-
 **Changing theme later**
 
 ```bash
