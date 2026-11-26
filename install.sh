@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Instala o terminal.sh em ~/.bashrc.d/ e o carrega no fim do ~/.bashrc.
-#   local:  bash install.sh [--starship] [--local|--system] [--theme=<nome>] [--font=<nome>]   (com os arquivos na mesma pasta)
+#   local:  bash install.sh [--starship] [--local|--system] [--theme=<nome>] [--update] [--font=<nome>]   (com os arquivos na mesma pasta)
 #   remoto: curl -fsSL <url>/install.sh | bash [-s -- --starship [--local|--system] [--theme=<nome>] [--font=<nome>]]
 # --starship: instala também o starship, com o tema monokai (starship.toml) ou um preset
 #   --local:  starship em ~/.local/bin (só para você, sem root)
@@ -8,6 +8,7 @@
 #   sem nenhum dos dois, pergunta onde instalar
 #   --theme=<nome>: monokai (padrão) ou um preset de `starship preset --list`;
 #                   sem a opção, pergunta qual tema usar
+#   --update: substitui o ~/.config/starship.toml pelo monokai deste repo (guarda .bak)
 #   --font=<nome>:  Nerd Font em ~/.local/share/fonts/<nome>: JetBrainsMono (padrão), outra de
 #                   https://github.com/ryanoasis/nerd-fonts/releases ou none (não instala);
 #                   sem a opção, pergunta qual fonte instalar
@@ -23,6 +24,7 @@ for arg in "$@"; do
     --local)    starship=1; bin_dir=$HOME/.local/bin ;;
     --system)   starship=1; bin_dir=/usr/local/bin ;;
     --theme=?*) starship=1; theme=${arg#--theme=} ;;
+    --update)   starship=1; theme=monokai ;;
     --font=?*)  starship=1; font=${arg#--font=} ;;
     *) echo "Opção desconhecida: $arg" >&2; exit 1 ;;
   esac
@@ -114,10 +116,9 @@ if (( starship )); then
   fi
   if [[ $theme == monokai ]]; then
     install_file starship.toml ~/.config/starship.toml
-    install_file starship-compact.toml ~/.config/starship-compact.toml
+    rm -f ~/.config/starship-compact.toml   # resquício do modo compacto (removido)
   elif [[ -n $theme ]]; then
     "$starship_bin" preset "$theme" -o ~/.config/starship.toml
-    rm -f ~/.config/starship-compact.toml   # o compacto é só do monokai
   fi
   [[ $bin_dir != "$HOME/.local/bin" || :$PATH: == *:$HOME/.local/bin:* ]] || echo "Atenção: adicione ~/.local/bin ao PATH antes do terminal.sh no ~/.bashrc"
 
